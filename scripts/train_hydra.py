@@ -128,6 +128,8 @@ def train(cfg: DictConfig):
     # set up trainer
     trainer = pl.Trainer(  # TODO: be careful with devices when scaling to multiple gpus
         gpus=gpus,
+        # TODO: make check more robust
+        strategy="ddp" if isinstance(gpus, list) and len(gpus) > 1 else None,
         max_epochs=cfg.training.max_epochs,
         min_epochs=cfg.training.min_epochs,
         check_val_every_n_epoch=cfg.training.check_val_every_n_epoch,
