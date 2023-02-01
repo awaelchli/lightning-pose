@@ -180,7 +180,7 @@ def train(cfg: DictConfig):
     pretty_print_str("Predicting train/val/test images...")
     # compute and save frame-wise predictions
     preds_file = os.path.join(hydra_output_directory, "predictions.csv")
-    predict_    dataset(
+    predict_dataset(
         cfg=cfg, trainer=trainer, model=model, data_module=data_module_pred, ckpt_file=best_ckpt,
         preds_file=preds_file)
     # compute and save various metrics
