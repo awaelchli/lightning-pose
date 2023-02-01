@@ -98,7 +98,7 @@ model:
   # - "unimodal_mse"
   # - "unimodal_kl"
   # - null: if null, assume a model is supervised.
-  losses_to_use: [""]
+  losses_to_use: []
   # whether to learn the weights for the unsupervised losses
   learn_weights: false
   # backbone network:
